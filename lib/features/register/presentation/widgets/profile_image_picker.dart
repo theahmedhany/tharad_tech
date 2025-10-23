@@ -65,8 +65,10 @@ class _ProfileImagePickerState extends State<ProfileImagePicker> {
               width: double.infinity,
               padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
               decoration: BoxDecoration(
-                color: context.customAppColors.grey50,
-                borderRadius: BorderRadius.circular(16.r),
+                color: context.customAppColors.primary200.withValues(
+                  alpha: 0.5,
+                ),
+                borderRadius: BorderRadius.circular(8.r),
               ),
               child: _selectedImage != null
                   ? ClipRRect(
@@ -106,7 +108,8 @@ class _ProfileImagePickerState extends State<ProfileImagePicker> {
                         Container(
                           padding: EdgeInsets.all(12.w),
                           decoration: BoxDecoration(
-                            color: context.customAppColors.grey100,
+                            color: context.customAppColors.primary200
+                                .withValues(alpha: 0.2),
                             shape: BoxShape.circle,
                           ),
                           child: Icon(

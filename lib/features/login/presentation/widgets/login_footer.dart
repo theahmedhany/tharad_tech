@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tharad_tech/core/helpers/extensions.dart';
 import 'package:tharad_tech/core/helpers/spacing.dart';
 import 'package:tharad_tech/core/routing/routes.dart';
 import 'package:tharad_tech/generated/l10n.dart';
@@ -25,8 +26,7 @@ class LoginFooter extends StatelessWidget {
 
         TextButton(
           onPressed: () {
-            // Navigate to register
-            Navigator.pushNamed(context, Routes.registerScreen);
+            context.pushReplacementNamed(Routes.registerScreen);
           },
           style: TextButton.styleFrom(
             padding: EdgeInsets.zero,

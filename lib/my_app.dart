@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
                 // initialRoute: isLoggedInUser
                 //     ? Routes.homeScreen
                 //     : Routes.loginScreen,
-                initialRoute: Routes.registerScreen,
+                initialRoute: Routes.logicScreen,
               );
             },
           ),

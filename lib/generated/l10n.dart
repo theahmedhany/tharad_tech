@@ -393,6 +393,91 @@ class S {
       args: [],
     );
   }
+
+  /// `OK`
+  String get showCustomSnackBarOk {
+    return Intl.message('OK', name: 'showCustomSnackBarOk', desc: '', args: []);
+  }
+
+  /// `Verify Your Email`
+  String get otpScreenTitle {
+    return Intl.message(
+      'Verify Your Email',
+      name: 'otpScreenTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter the 4-digit code sent to your email.`
+  String get otpScreenSubtitle {
+    return Intl.message(
+      'Enter the 4-digit code sent to your email.',
+      name: 'otpScreenSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Resend Code`
+  String get otpScreenResendCode {
+    return Intl.message(
+      'Resend Code',
+      name: 'otpScreenResendCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Clear Code`
+  String get otpScreenClearCode {
+    return Intl.message(
+      'Clear Code',
+      name: 'otpScreenClearCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verify`
+  String get otpScreenVerifyButton {
+    return Intl.message(
+      'Verify',
+      name: 'otpScreenVerifyButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid 4-digit code.`
+  String get otpScreenInvalidCode {
+    return Intl.message(
+      'Please enter a valid 4-digit code.',
+      name: 'otpScreenInvalidCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verification successful!`
+  String get otpScreenSuccess {
+    return Intl.message(
+      'Verification successful!',
+      name: 'otpScreenSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verification failed. Please try again.`
+  String get otpScreenFailure {
+    return Intl.message(
+      'Verification failed. Please try again.',
+      name: 'otpScreenFailure',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

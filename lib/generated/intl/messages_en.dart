@@ -57,6 +57,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "loginScreenTitle": MessageLookupByLibrary.simpleMessage(
       "Welcome Back, Please Login.",
     ),
+    "otpScreenClearCode": MessageLookupByLibrary.simpleMessage("Clear Code"),
+    "otpScreenFailure": MessageLookupByLibrary.simpleMessage(
+      "Verification failed. Please try again.",
+    ),
+    "otpScreenInvalidCode": MessageLookupByLibrary.simpleMessage(
+      "Please enter a valid 4-digit code.",
+    ),
+    "otpScreenResendCode": MessageLookupByLibrary.simpleMessage("Resend Code"),
+    "otpScreenSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Enter the 4-digit code sent to your email.",
+    ),
+    "otpScreenSuccess": MessageLookupByLibrary.simpleMessage(
+      "Verification successful!",
+    ),
+    "otpScreenTitle": MessageLookupByLibrary.simpleMessage("Verify Your Email"),
+    "otpScreenVerifyButton": MessageLookupByLibrary.simpleMessage("Verify"),
     "registerAvailableImages": MessageLookupByLibrary.simpleMessage(
       "Allowed file types: PNG, JPEG",
     ),
@@ -105,5 +121,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "registerScreenTitle": MessageLookupByLibrary.simpleMessage(
       "Create a New Account.",
     ),
+    "showCustomSnackBarOk": MessageLookupByLibrary.simpleMessage("OK"),
   };
 }

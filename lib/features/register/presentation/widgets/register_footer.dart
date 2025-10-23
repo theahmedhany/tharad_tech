@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tharad_tech/core/helpers/extensions.dart';
 import 'package:tharad_tech/core/helpers/spacing.dart';
+import 'package:tharad_tech/core/routing/routes.dart';
 import 'package:tharad_tech/generated/l10n.dart';
 
 import '../../../../core/theme/app_texts/app_text_styles.dart';
@@ -25,7 +26,7 @@ class RegisterFooter extends StatelessWidget {
 
         TextButton(
           onPressed: () {
-            context.pop();
+            context.pushReplacementNamed(Routes.logicScreen);
           },
           style: TextButton.styleFrom(
             padding: EdgeInsets.zero,
@@ -35,7 +36,7 @@ class RegisterFooter extends StatelessWidget {
           child: Text(
             S.of(context).registerScreenLogin,
             style: AppTextStyles.font16Regular.copyWith(
-              color: context.customAppColors.primary900,
+              color: context.customAppColors.primary700,
               decoration: TextDecoration.underline,
             ),
           ),

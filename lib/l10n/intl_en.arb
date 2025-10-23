@@ -35,5 +35,17 @@
   "registerScreenAlreadyHaveAccount": "Already have an account?",
   "registerScreenLogin": "Login",
   "registerScreenSuccess": "Registration successful!",
-  "registerScreenFailure": "Registration failed. Please try again."
+  "registerScreenFailure": "Registration failed. Please try again.",
+
+  "showCustomSnackBarOk"  : "OK",
+
+  "otpScreenTitle": "Verify Your Email",
+  "otpScreenSubtitle": "Enter the 4-digit code sent to your email.",
+  "otpScreenResendCode": "Resend Code",
+  "otpScreenClearCode": "Clear Code",
+  "otpScreenVerifyButton": "Verify",
+  "otpScreenInvalidCode": "Please enter a valid 4-digit code.",
+  "otpScreenSuccess": "Verification successful!",
+  "otpScreenFailure": "Verification failed. Please try again."
+
 }
