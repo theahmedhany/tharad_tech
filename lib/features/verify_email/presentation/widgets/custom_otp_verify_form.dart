@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
+import 'package:tharad_tech/core/helpers/extensions.dart';
+import 'package:tharad_tech/core/routing/routes.dart';
 import 'package:tharad_tech/core/theme/theme_manager/theme_extensions.dart';
 import 'package:tharad_tech/core/widgets/custom_app_button.dart';
 import 'package:tharad_tech/generated/l10n.dart';
@@ -157,28 +159,30 @@ class _CustomOtpVerifyFormState extends State<CustomOtpVerifyForm> {
             textStyle: AppTextStyles.font16Bold.copyWith(
               color: context.customAppColors.white,
             ),
-            onPressed: _validateAndProceed,
+            onPressed: () {
+              context.pushNamed(Routes.homeScreen);
+            },
           ),
         ],
       ),
     );
   }
 
-  void _validateAndProceed() {
-    // final otp = context.read<VerifyOtpCubit>().otpController.text.trim();
+  // void _validateAndProceed() {
+  // final otp = context.read<VerifyOtpCubit>().otpController.text.trim();
 
-    // if (otp.length < 6) {
-    //   setState(() {
-    //     _errorMessage = "Please enter a valid 6-digit code.";
-    //   });
-    // } else {
-    //   setState(() {
-    //     _errorMessage = null;
-    //   });
+  // if (otp.length < 6) {
+  //   setState(() {
+  //     _errorMessage = "Please enter a valid 6-digit code.";
+  //   });
+  // } else {
+  //   setState(() {
+  //     _errorMessage = null;
+  //   });
 
-    //   if (context.read<VerifyOtpCubit>().formKey.currentState!.validate()) {
-    //     context.read<VerifyOtpCubit>().emitVerifyOtpStates();
-    //   }
-    // }
-  }
+  //   if (context.read<VerifyOtpCubit>().formKey.currentState!.validate()) {
+  //     context.read<VerifyOtpCubit>().emitVerifyOtpStates();
+  //   }
+  // }
+  // }
 }
