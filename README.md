@@ -30,7 +30,7 @@ A sophisticated, production-ready Flutter application showcasing enterprise-leve
 
 <table>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/096e4f4e-a112-41c7-a8dc-a8c43254025a" alt="Tharad Tech" width="400"/></td>
+    <td><img src="https://github.com/user-attachments/assets/096e4f4e-a112-41c7-a8dc-a8c43254025a" alt="Tharad Tech"/></td>
   </tr>
 </table>
 
