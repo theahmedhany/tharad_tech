@@ -46,7 +46,14 @@ class CustomAppButton extends StatelessWidget {
             horizontal: horizontalPadding?.w ?? 14.w,
             vertical: verticalPadding?.h ?? 14.h,
           ),
-          child: Center(child: Text(buttonText, style: textStyle)),
+          child: Center(
+            child: Text(
+              buttonText,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: textStyle,
+            ),
+          ),
         ),
       ),
     );

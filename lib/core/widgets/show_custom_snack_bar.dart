@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tharad_tech/generated/l10n.dart';
 
+import '../../generated/l10n.dart';
 import '../theme/app_texts/app_text_styles.dart';
 import '../theme/theme_manager/theme_extensions.dart';
 

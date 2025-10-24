@@ -2,16 +2,17 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tharad_tech/core/helpers/spacing.dart';
-import 'package:tharad_tech/core/theme/app_texts/app_text_styles.dart';
-import 'package:tharad_tech/core/theme/theme_manager/theme_extensions.dart';
-import 'package:tharad_tech/core/widgets/custom_loading.dart';
-import 'package:tharad_tech/core/widgets/dashed_border_painter.dart';
-import 'package:tharad_tech/features/home/data/models/user_details_model.dart';
-import 'package:tharad_tech/features/home/presentation/logic/user_details/user_details_cubit.dart';
-import 'package:tharad_tech/features/home/presentation/logic/user_details/user_details_state.dart';
-import 'package:tharad_tech/features/home/presentation/widgets/home_header_section_shimmer.dart';
-import 'package:tharad_tech/generated/l10n.dart';
+
+import '../../../../core/helpers/spacing.dart';
+import '../../../../core/theme/app_texts/app_text_styles.dart';
+import '../../../../core/theme/theme_manager/theme_extensions.dart';
+import '../../../../core/widgets/custom_loading.dart';
+import '../../../../core/widgets/dashed_border_painter.dart';
+import '../../../../generated/l10n.dart';
+import '../../data/models/user_details_model.dart';
+import '../logic/user_details/user_details_cubit.dart';
+import '../logic/user_details/user_details_state.dart';
+import 'home_header_section_shimmer.dart';
 
 class HomeHeaderSection extends StatelessWidget {
   const HomeHeaderSection({super.key});

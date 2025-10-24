@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tharad_tech/features/verify_email/data/models/otp_response.dart';
-import 'package:tharad_tech/features/verify_email/presentation/logic/otp_cubit.dart';
-import 'package:tharad_tech/features/verify_email/presentation/logic/otp_state.dart';
 
 import '../../../../core/helpers/extensions.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theme/theme_manager/theme_extensions.dart';
 import '../../../../core/widgets/custom_alert_dialog.dart';
 import '../../../../core/widgets/custom_loading.dart';
+import '../../data/models/otp_response.dart';
+import '../logic/otp_cubit.dart';
+import '../logic/otp_state.dart';
 
 class OtpBlocListener extends StatelessWidget {
   const OtpBlocListener({super.key});

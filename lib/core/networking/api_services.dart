@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:tharad_tech/features/edit_profile/data/models/edit_profile_response.dart';
-import 'package:tharad_tech/features/home/data/models/user_details_model.dart';
-import 'package:tharad_tech/features/login/data/models/login_request_body.dart';
-import 'package:tharad_tech/features/login/data/models/login_response.dart';
-import 'package:tharad_tech/features/register/data/models/register_response.dart';
-import 'package:tharad_tech/features/verify_email/data/models/otp_response.dart';
 
+import '../../features/edit_profile/data/models/edit_profile_response.dart';
+import '../../features/home/data/models/user_details_model.dart';
+import '../../features/login/data/models/login_request_body.dart';
+import '../../features/login/data/models/login_response.dart';
+import '../../features/register/data/models/register_response.dart';
+import '../../features/verify_email/data/models/otp_response.dart';
 import 'api_constants.dart';
 
 part 'api_services.g.dart';

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tharad_tech/core/helpers/spacing.dart';
-import 'package:tharad_tech/core/routing/routes.dart';
-import 'package:tharad_tech/core/theme/theme_manager/theme_extensions.dart';
-import 'package:tharad_tech/features/home/data/cache/hive_service.dart';
-import 'package:tharad_tech/features/home/presentation/logic/user_details/user_details_cubit.dart';
-import 'package:tharad_tech/features/home/presentation/widgets/home_action_card.dart';
-import 'package:tharad_tech/features/home/presentation/widgets/theme_bottom_sheet.dart';
-import 'package:tharad_tech/generated/l10n.dart';
+
+import '../../../../core/helpers/spacing.dart';
+import '../../../../core/routing/routes.dart';
+import '../../../../core/theme/theme_manager/theme_extensions.dart';
+import '../../../../generated/l10n.dart';
+import '../../data/cache/hive_service.dart';
+import '../logic/user_details/user_details_cubit.dart';
+import 'home_action_card.dart';
+import 'theme_bottom_sheet.dart';
 
 class HomeQuickActions extends StatelessWidget {
   const HomeQuickActions({super.key});

@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
-import 'package:tharad_tech/features/verify_email/data/models/otp_response.dart';
-import 'package:tharad_tech/features/verify_email/data/repos/otp_repo.dart';
-import 'package:tharad_tech/features/verify_email/presentation/logic/otp_state.dart';
 
 import '../../../../core/networking/api_error_handler.dart';
+import '../../data/models/otp_response.dart';
+import '../../data/repos/otp_repo.dart';
+import 'otp_state.dart';
 
 class OtpCubit extends Cubit<OtpState<OtpResponse>> {
   final OtpRepo otpRepo;

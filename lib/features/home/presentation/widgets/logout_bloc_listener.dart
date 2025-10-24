@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tharad_tech/features/home/presentation/logic/logout/logout_cubit.dart';
-import 'package:tharad_tech/features/home/presentation/logic/logout/logout_state.dart';
 
 import '../../../../core/helpers/extensions.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theme/theme_manager/theme_extensions.dart';
 import '../../../../core/widgets/custom_alert_dialog.dart';
 import '../../../../core/widgets/custom_loading.dart';
+import '../logic/logout/logout_cubit.dart';
+import '../logic/logout/logout_state.dart';
 
 class LogoutBlocListener extends StatelessWidget {
   const LogoutBlocListener({super.key});

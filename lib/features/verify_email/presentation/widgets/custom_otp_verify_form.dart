@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
-import 'package:tharad_tech/core/theme/theme_manager/theme_extensions.dart';
-import 'package:tharad_tech/core/widgets/custom_app_button.dart';
-import 'package:tharad_tech/features/verify_email/presentation/logic/otp_cubit.dart';
-import 'package:tharad_tech/generated/l10n.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theme/app_texts/app_text_styles.dart';
+import '../../../../core/theme/theme_manager/theme_extensions.dart';
+import '../../../../core/widgets/custom_app_button.dart';
+import '../../../../generated/l10n.dart';
+import '../logic/otp_cubit.dart';
 
 class CustomOtpVerifyForm extends StatefulWidget {
   final String email;
@@ -85,37 +85,40 @@ class _CustomOtpVerifyFormState extends State<CustomOtpVerifyForm> {
       key: _formKey,
       child: Column(
         children: [
-          Center(
-            child: Pinput(
-              controller: _otpController,
-              focusNode: _focusNode,
-              length: 4,
-              showCursor: true,
-              validator: (pin) {
-                if (pin == null || pin.length < 4) {
-                  return S.of(context).otpScreenInvalidCode;
-                }
-                return null;
-              },
-              pinputAutovalidateMode: PinputAutovalidateMode.disabled,
-              cursor: Container(
-                width: 2.w,
-                height: 24.h,
-                color: context.customAppColors.primary500,
+          Directionality(
+            textDirection: TextDirection.ltr,
+            child: Center(
+              child: Pinput(
+                controller: _otpController,
+                focusNode: _focusNode,
+                length: 4,
+                showCursor: true,
+                validator: (pin) {
+                  if (pin == null || pin.length < 4) {
+                    return S.of(context).otpScreenInvalidCode;
+                  }
+                  return null;
+                },
+                pinputAutovalidateMode: PinputAutovalidateMode.disabled,
+                cursor: Container(
+                  width: 2.w,
+                  height: 24.h,
+                  color: context.customAppColors.primary500,
+                ),
+                defaultPinTheme: _defaultPinTheme,
+                focusedPinTheme: _focusedPinTheme,
+                submittedPinTheme: _submittedPinTheme,
+                errorPinTheme: _errorPinTheme,
+                onChanged: (pin) {
+                  if (_errorMessage != null) {
+                    setState(() {
+                      _errorMessage = null;
+                    });
+                  }
+                },
+                keyboardType: TextInputType.number,
+                separatorBuilder: (index) => SizedBox(width: 12.w),
               ),
-              defaultPinTheme: _defaultPinTheme,
-              focusedPinTheme: _focusedPinTheme,
-              submittedPinTheme: _submittedPinTheme,
-              errorPinTheme: _errorPinTheme,
-              onChanged: (pin) {
-                if (_errorMessage != null) {
-                  setState(() {
-                    _errorMessage = null;
-                  });
-                }
-              },
-              keyboardType: TextInputType.number,
-              separatorBuilder: (index) => SizedBox(width: 12.w),
             ),
           ),
 

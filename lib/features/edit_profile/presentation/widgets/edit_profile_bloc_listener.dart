@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tharad_tech/features/edit_profile/presentation/logic/edit_profile_cubit.dart';
-import 'package:tharad_tech/features/edit_profile/presentation/logic/edit_profile_state.dart';
 
 import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/theme/theme_manager/theme_extensions.dart';
 import '../../../../../core/widgets/custom_alert_dialog.dart';
 import '../../../../../core/widgets/custom_loading.dart';
+import '../logic/edit_profile_cubit.dart';
+import '../logic/edit_profile_state.dart';
 
 class EditProfileBlocListener extends StatelessWidget {
   const EditProfileBlocListener({super.key});

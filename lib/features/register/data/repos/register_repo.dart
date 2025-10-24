@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:tharad_tech/features/register/data/models/register_response.dart';
 
 import '../../../../../core/networking/api_network_exceptions.dart';
 import '../../../../../core/networking/api_result.dart';
 import '../../../../../core/networking/api_services.dart';
+import '../models/register_response.dart';
 
 class RegisterRepo {
   final ApiServices _apiServices;

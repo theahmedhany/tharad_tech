@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tharad_tech/core/helpers/extensions.dart';
-import 'package:tharad_tech/core/helpers/spacing.dart';
-import 'package:tharad_tech/features/home/data/models/user_details_model.dart';
-import 'package:tharad_tech/generated/l10n.dart';
 
+import '../../../../core/helpers/extensions.dart';
+import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theme/theme_manager/theme_extensions.dart';
+import '../../../../generated/l10n.dart';
+import '../../../home/data/models/user_details_model.dart';
 import '../widgets/edit_profile_form.dart';
 
 class EditProfileScreen extends StatelessWidget {
@@ -25,7 +25,7 @@ class EditProfileScreen extends StatelessWidget {
           bottom: false,
           child: Column(
             children: [
-              verticalSpace(40),
+              verticalSpace(20),
 
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),

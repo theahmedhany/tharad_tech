@@ -3,13 +3,13 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tharad_tech/core/helpers/spacing.dart';
-import 'package:tharad_tech/core/widgets/custom_loading.dart';
-import 'package:tharad_tech/generated/l10n.dart';
 
+import '../../generated/l10n.dart';
+import '../helpers/spacing.dart';
 import '../theme/app_texts/app_text_styles.dart';
 import '../theme/theme_manager/theme_extensions.dart';
 import '../utils/image_picker_utils.dart';
+import 'custom_loading.dart';
 import 'dashed_border_painter.dart';
 
 class ProfileImagePicker extends StatefulWidget {

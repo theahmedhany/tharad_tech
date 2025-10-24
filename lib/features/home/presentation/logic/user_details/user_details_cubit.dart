@@ -1,8 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tharad_tech/features/home/data/cache/hive_service.dart';
-import 'package:tharad_tech/features/home/data/models/user_details_model.dart';
-import 'package:tharad_tech/features/home/data/repos/user_details_repo.dart';
-import 'package:tharad_tech/features/home/presentation/logic/user_details/user_details_state.dart';
+
+import '../../../data/cache/hive_service.dart';
+import '../../../data/models/user_details_model.dart';
+import '../../../data/repos/user_details_repo.dart';
+import 'user_details_state.dart';
 
 class UserDetailsCubit extends Cubit<UserDetailsState<UserDetailsModel>> {
   final UserDetailsRepo userDetailsRepo;

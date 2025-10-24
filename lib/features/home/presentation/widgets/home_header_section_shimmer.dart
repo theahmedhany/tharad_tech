@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:tharad_tech/core/helpers/spacing.dart';
-import 'package:tharad_tech/core/theme/theme_manager/theme_extensions.dart';
-import 'package:tharad_tech/core/widgets/dashed_border_painter.dart';
+
+import '../../../../core/helpers/spacing.dart';
+import '../../../../core/theme/theme_manager/theme_extensions.dart';
+import '../../../../core/widgets/dashed_border_painter.dart';
 
 class HomeHeaderSectionShimmer extends StatelessWidget {
   const HomeHeaderSectionShimmer({super.key});

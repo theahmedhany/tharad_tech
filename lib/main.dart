@@ -2,12 +2,12 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tharad_tech/core/di/dependency_injection.dart';
-import 'package:tharad_tech/core/helpers/shared_pref_helper.dart';
-import 'package:tharad_tech/core/routing/app_router.dart';
-import 'package:tharad_tech/core/utils/constants.dart';
-import 'package:tharad_tech/features/home/data/cache/hive_service.dart';
 
+import 'core/di/dependency_injection.dart';
+import 'core/helpers/shared_pref_helper.dart';
+import 'core/routing/app_router.dart';
+import 'core/utils/constants.dart';
+import 'features/home/data/cache/hive_service.dart';
 import 'my_app.dart';
 
 void main() async {

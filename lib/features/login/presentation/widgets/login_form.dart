@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tharad_tech/core/helpers/app_regex.dart';
-import 'package:tharad_tech/core/helpers/spacing.dart';
-import 'package:tharad_tech/features/login/presentation/logic/login_cubit.dart';
-import 'package:tharad_tech/generated/l10n.dart';
 
+import '../../../../core/helpers/app_regex.dart';
+import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theme/app_texts/app_text_styles.dart';
 import '../../../../core/theme/theme_manager/theme_extensions.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
+import '../../../../generated/l10n.dart';
+import '../logic/login_cubit.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});

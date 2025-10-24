@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tharad_tech/core/di/dependency_injection.dart';
-import 'package:tharad_tech/core/helpers/extensions.dart';
-import 'package:tharad_tech/core/helpers/spacing.dart';
-import 'package:tharad_tech/core/theme/app_texts/app_text_styles.dart';
-import 'package:tharad_tech/core/theme/theme_manager/theme_extensions.dart';
-import 'package:tharad_tech/core/widgets/custom_app_button.dart';
-import 'package:tharad_tech/features/home/presentation/logic/logout/logout_cubit.dart';
-import 'package:tharad_tech/features/home/presentation/widgets/logout_bloc_listener.dart';
-import 'package:tharad_tech/generated/l10n.dart';
+
+import '../../../../core/di/dependency_injection.dart';
+import '../../../../core/helpers/extensions.dart';
+import '../../../../core/helpers/spacing.dart';
+import '../../../../core/theme/app_texts/app_text_styles.dart';
+import '../../../../core/theme/theme_manager/theme_extensions.dart';
+import '../../../../core/widgets/custom_app_button.dart';
+import '../../../../generated/l10n.dart';
+import '../logic/logout/logout_cubit.dart';
+import 'logout_bloc_listener.dart';
 
 class LogoutDialog extends StatelessWidget {
   const LogoutDialog({super.key});
@@ -81,7 +82,7 @@ class LogoutDialog extends StatelessWidget {
                       Expanded(
                         child: CustomAppButton(
                           buttonText: S.of(context).homeScreenCancel,
-                          textStyle: AppTextStyles.font16Bold.copyWith(
+                          textStyle: AppTextStyles.font14SemiBold.copyWith(
                             color: context.customAppColors.grey0,
                           ),
                           onPressed: () {
@@ -96,7 +97,7 @@ class LogoutDialog extends StatelessWidget {
                         child: CustomAppButton(
                           buttonText: S.of(context).homeScreenLogout,
                           backgroundColor: context.customAppColors.error,
-                          textStyle: AppTextStyles.font16Bold.copyWith(
+                          textStyle: AppTextStyles.font14SemiBold.copyWith(
                             color: context.customAppColors.grey0,
                           ),
                           onPressed: () {

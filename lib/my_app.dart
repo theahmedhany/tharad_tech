@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tharad_tech/core/routing/app_router.dart';
-import 'package:tharad_tech/core/routing/routes.dart';
-import 'package:tharad_tech/core/theme/theme_data/dark_them_data.dart';
-import 'package:tharad_tech/core/theme/theme_data/light_theme_data.dart';
-import 'package:tharad_tech/core/theme/theme_manager/theme_cubit.dart';
-import 'package:tharad_tech/core/utils/constants.dart';
-import 'package:tharad_tech/generated/l10n.dart';
+
+import 'core/routing/app_router.dart';
+import 'core/routing/routes.dart';
+import 'core/theme/theme_data/dark_them_data.dart';
+import 'core/theme/theme_data/light_theme_data.dart';
+import 'core/theme/theme_manager/theme_cubit.dart';
+import 'core/utils/constants.dart';
+import 'generated/l10n.dart';
 
 class MyApp extends StatelessWidget {
   final AppRouter appRouter;

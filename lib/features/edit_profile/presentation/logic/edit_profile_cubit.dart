@@ -3,11 +3,11 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tharad_tech/features/edit_profile/data/repos/edit_profile_repo.dart';
-import 'package:tharad_tech/features/edit_profile/presentation/logic/edit_profile_state.dart';
-import 'package:tharad_tech/features/home/data/models/user_details_model.dart';
 
 import '../../../../../core/networking/api_error_handler.dart';
+import '../../../home/data/models/user_details_model.dart';
+import '../../data/repos/edit_profile_repo.dart';
+import 'edit_profile_state.dart';
 
 class EditProfileCubit extends Cubit<EditProfileState> {
   final EditProfileRepo _editProfileRepo;

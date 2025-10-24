@@ -3,10 +3,10 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tharad_tech/features/register/data/repos/register_repo.dart';
-import 'package:tharad_tech/features/register/presentation/logic/register_state.dart';
 
 import '../../../../../core/networking/api_error_handler.dart';
+import '../../data/repos/register_repo.dart';
+import 'register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
   final RegisterRepo _registerRepo;

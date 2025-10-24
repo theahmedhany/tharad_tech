@@ -1,9 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tharad_tech/core/helpers/shared_pref_helper.dart';
-import 'package:tharad_tech/core/networking/api_error_handler.dart';
-import 'package:tharad_tech/features/home/data/cache/hive_service.dart';
-import 'package:tharad_tech/features/home/data/repos/logout_repo.dart';
 
+import '../../../../../core/helpers/shared_pref_helper.dart';
+import '../../../../../core/networking/api_error_handler.dart';
+import '../../../data/cache/hive_service.dart';
+import '../../../data/repos/logout_repo.dart';
 import 'logout_state.dart';
 
 class LogoutCubit extends Cubit<LogoutState> {

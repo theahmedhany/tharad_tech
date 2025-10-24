@@ -4,12 +4,12 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:tharad_tech/core/widgets/show_custom_snack_bar.dart';
-import 'package:tharad_tech/generated/l10n.dart';
 
+import '../../generated/l10n.dart';
 import '../helpers/spacing.dart';
 import '../theme/app_texts/app_text_styles.dart';
 import '../theme/theme_manager/theme_extensions.dart';
+import '../widgets/show_custom_snack_bar.dart';
 
 class ImagePickerUtils {
   static final ImagePicker _picker = ImagePicker();

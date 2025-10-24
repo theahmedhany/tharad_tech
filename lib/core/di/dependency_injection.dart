@@ -1,18 +1,18 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import 'package:tharad_tech/features/edit_profile/data/repos/edit_profile_repo.dart';
-import 'package:tharad_tech/features/edit_profile/presentation/logic/edit_profile_cubit.dart';
-import 'package:tharad_tech/features/home/data/repos/logout_repo.dart';
-import 'package:tharad_tech/features/home/data/repos/user_details_repo.dart';
-import 'package:tharad_tech/features/home/presentation/logic/logout/logout_cubit.dart';
-import 'package:tharad_tech/features/home/presentation/logic/user_details/user_details_cubit.dart';
-import 'package:tharad_tech/features/login/data/repos/login_repo.dart';
-import 'package:tharad_tech/features/login/presentation/logic/login_cubit.dart';
-import 'package:tharad_tech/features/register/data/repos/register_repo.dart';
-import 'package:tharad_tech/features/register/presentation/logic/register_cubit.dart';
-import 'package:tharad_tech/features/verify_email/data/repos/otp_repo.dart';
-import 'package:tharad_tech/features/verify_email/presentation/logic/otp_cubit.dart';
 
+import '../../features/edit_profile/data/repos/edit_profile_repo.dart';
+import '../../features/edit_profile/presentation/logic/edit_profile_cubit.dart';
+import '../../features/home/data/repos/logout_repo.dart';
+import '../../features/home/data/repos/user_details_repo.dart';
+import '../../features/home/presentation/logic/logout/logout_cubit.dart';
+import '../../features/home/presentation/logic/user_details/user_details_cubit.dart';
+import '../../features/login/data/repos/login_repo.dart';
+import '../../features/login/presentation/logic/login_cubit.dart';
+import '../../features/register/data/repos/register_repo.dart';
+import '../../features/register/presentation/logic/register_cubit.dart';
+import '../../features/verify_email/data/repos/otp_repo.dart';
+import '../../features/verify_email/presentation/logic/otp_cubit.dart';
 import '../networking/api_services.dart';
 import '../networking/dio_factory.dart';
 

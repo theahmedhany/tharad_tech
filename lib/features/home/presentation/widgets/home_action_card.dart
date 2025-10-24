@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tharad_tech/core/helpers/spacing.dart';
-import 'package:tharad_tech/core/theme/app_texts/app_text_styles.dart';
-import 'package:tharad_tech/core/theme/theme_manager/theme_extensions.dart';
+
+import '../../../../core/helpers/spacing.dart';
+import '../../../../core/theme/app_texts/app_text_styles.dart';
+import '../../../../core/theme/theme_manager/theme_extensions.dart';
 
 class HomeActionCard extends StatelessWidget {
   const HomeActionCard({
@@ -60,7 +61,7 @@ class HomeActionCard extends StatelessWidget {
                 Text(
                   title,
                   textAlign: TextAlign.center,
-                  maxLines: 2,
+                  maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: AppTextStyles.font16Bold.copyWith(
                     color: context.customAppColors.grey900,

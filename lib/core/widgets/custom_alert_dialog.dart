@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tharad_tech/core/theme/app_texts/app_text_styles.dart';
-import 'package:tharad_tech/core/theme/theme_manager/theme_extensions.dart';
-import 'package:tharad_tech/core/widgets/custom_app_button.dart';
-import 'package:tharad_tech/generated/l10n.dart';
 
+import '../../generated/l10n.dart';
 import '../helpers/spacing.dart';
+import '../theme/app_texts/app_text_styles.dart';
+import '../theme/theme_manager/theme_extensions.dart';
+import 'custom_app_button.dart';
 
 class CustomAlertDialog extends StatelessWidget {
   final String dialogHeader;

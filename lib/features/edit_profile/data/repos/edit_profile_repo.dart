@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:tharad_tech/features/edit_profile/data/models/edit_profile_response.dart';
 
 import '../../../../../core/networking/api_network_exceptions.dart';
 import '../../../../../core/networking/api_result.dart';
 import '../../../../../core/networking/api_services.dart';
+import '../models/edit_profile_response.dart';
 
 class EditProfileRepo {
   final ApiServices _apiServices;

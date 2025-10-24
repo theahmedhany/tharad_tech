@@ -1,8 +1,7 @@
-import 'package:tharad_tech/features/verify_email/data/models/otp_response.dart';
-
 import '../../../../core/networking/api_network_exceptions.dart';
 import '../../../../core/networking/api_result.dart';
 import '../../../../core/networking/api_services.dart';
+import '../models/otp_response.dart';
 
 class OtpRepo {
   final ApiServices apiServices;

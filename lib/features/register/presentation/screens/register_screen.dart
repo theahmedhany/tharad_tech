@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tharad_tech/core/helpers/spacing.dart';
-import 'package:tharad_tech/core/widgets/show_custom_snack_bar.dart';
-import 'package:tharad_tech/features/register/presentation/logic/register_cubit.dart';
-import 'package:tharad_tech/features/register/presentation/widgets/register_bloc_listener.dart';
-import 'package:tharad_tech/generated/l10n.dart';
 
+import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theme/app_texts/app_text_styles.dart';
 import '../../../../core/theme/theme_manager/theme_extensions.dart';
 import '../../../../core/widgets/custom_app_button.dart';
+import '../../../../core/widgets/show_custom_snack_bar.dart';
+import '../../../../generated/l10n.dart';
+import '../logic/register_cubit.dart';
+import '../widgets/register_bloc_listener.dart';
 import '../widgets/register_footer.dart';
 import '../widgets/register_form.dart';
 import '../widgets/register_header.dart';
@@ -26,7 +26,7 @@ class RegisterScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 24.w),
           child: Column(
             children: [
-              verticalSpace(20),
+              verticalSpace(40),
 
               const RegisterHeader(),
 

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tharad_tech/core/helpers/extensions.dart';
-import 'package:tharad_tech/core/helpers/spacing.dart';
-import 'package:tharad_tech/core/routing/routes.dart';
-import 'package:tharad_tech/generated/l10n.dart';
 
+import '../../../../core/helpers/extensions.dart';
+import '../../../../core/helpers/spacing.dart';
+import '../../../../core/routing/routes.dart';
 import '../../../../core/theme/app_texts/app_text_styles.dart';
 import '../../../../core/theme/theme_manager/theme_extensions.dart';
+import '../../../../generated/l10n.dart';
 
 class RegisterFooter extends StatelessWidget {
   const RegisterFooter({super.key});

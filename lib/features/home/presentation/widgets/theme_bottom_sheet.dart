@@ -2,12 +2,12 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tharad_tech/core/helpers/spacing.dart';
-import 'package:tharad_tech/generated/l10n.dart';
 
+import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theme/app_texts/app_text_styles.dart';
 import '../../../../core/theme/theme_manager/theme_cubit.dart';
 import '../../../../core/theme/theme_manager/theme_extensions.dart';
+import '../../../../generated/l10n.dart';
 
 class ThemeBottomSheet extends StatelessWidget {
   const ThemeBottomSheet({super.key});
