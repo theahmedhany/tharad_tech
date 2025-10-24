@@ -478,6 +478,221 @@ class S {
       args: [],
     );
   }
+
+  /// `Home Page`
+  String get homeScreenWelcome {
+    return Intl.message(
+      'Home Page',
+      name: 'homeScreenWelcome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Profile`
+  String get homeScreenEditProfile {
+    return Intl.message(
+      'Edit Profile',
+      name: 'homeScreenEditProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Theme`
+  String get homeScreenTheme {
+    return Intl.message('Theme', name: 'homeScreenTheme', desc: '', args: []);
+  }
+
+  /// `Quick Actions`
+  String get homeScreenQuickActions {
+    return Intl.message(
+      'Quick Actions',
+      name: 'homeScreenQuickActions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logout`
+  String get homeScreenLogout {
+    return Intl.message('Logout', name: 'homeScreenLogout', desc: '', args: []);
+  }
+
+  /// `Logout Confirmation`
+  String get homeLogoutConfirmationTitle {
+    return Intl.message(
+      'Logout Confirmation',
+      name: 'homeLogoutConfirmationTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to logout?`
+  String get homeScreenLogoutConfirmation {
+    return Intl.message(
+      'Are you sure you want to logout?',
+      name: 'homeScreenLogoutConfirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get homeScreenCancel {
+    return Intl.message('Cancel', name: 'homeScreenCancel', desc: '', args: []);
+  }
+
+  /// `Choose App Theme`
+  String get homeThemeBottomSheet {
+    return Intl.message(
+      'Choose App Theme',
+      name: 'homeThemeBottomSheet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Light Theme`
+  String get homeThemeLight {
+    return Intl.message(
+      'Light Theme',
+      name: 'homeThemeLight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Use the light theme for better visibility in bright environments.`
+  String get homeLightThemeDescription {
+    return Intl.message(
+      'Use the light theme for better visibility in bright environments.',
+      name: 'homeLightThemeDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark Theme`
+  String get homeThemeDark {
+    return Intl.message(
+      'Dark Theme',
+      name: 'homeThemeDark',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Use the dark theme to reduce eye strain in low light conditions.`
+  String get homeDarkThemeDescription {
+    return Intl.message(
+      'Use the dark theme to reduce eye strain in low light conditions.',
+      name: 'homeDarkThemeDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `System Default`
+  String get homeThemeSystem {
+    return Intl.message(
+      'System Default',
+      name: 'homeThemeSystem',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Automatically switch themes based on your device settings.`
+  String get homeSystemThemeDescription {
+    return Intl.message(
+      'Automatically switch themes based on your device settings.',
+      name: 'homeSystemThemeDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Your Profile`
+  String get editProfileScreenTitle {
+    return Intl.message(
+      'Edit Your Profile',
+      name: 'editProfileScreenTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Old Password`
+  String get editProfileOldPassword {
+    return Intl.message(
+      'Old Password',
+      name: 'editProfileOldPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your old password`
+  String get editProfileOldPasswordHint {
+    return Intl.message(
+      'Enter your old password',
+      name: 'editProfileOldPasswordHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Password`
+  String get editProfileNewPassword {
+    return Intl.message(
+      'New Password',
+      name: 'editProfileNewPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your new password`
+  String get editProfileNewPasswordHint {
+    return Intl.message(
+      'Enter your new password',
+      name: 'editProfileNewPasswordHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Password`
+  String get editProfileConfirmPassword {
+    return Intl.message(
+      'Confirm Password',
+      name: 'editProfileConfirmPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Re-enter your new password`
+  String get editProfileConfirmPasswordHint {
+    return Intl.message(
+      'Re-enter your new password',
+      name: 'editProfileConfirmPasswordHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save Changes`
+  String get editProfileSaveButton {
+    return Intl.message(
+      'Save Changes',
+      name: 'editProfileSaveButton',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

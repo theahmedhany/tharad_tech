@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tharad_tech/core/routing/routes.dart';
-import 'package:tharad_tech/features/home/presentation/screens/edit_profile_screen.dart';
+import 'package:tharad_tech/features/edit_profile/presentation/screens/edit_profile_screen.dart';
 import 'package:tharad_tech/features/home/presentation/screens/home_screen.dart';
 import 'package:tharad_tech/features/login/presentation/screens/logic_screen.dart';
 import 'package:tharad_tech/features/register/presentation/screens/register_screen.dart';

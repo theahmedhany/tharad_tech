@@ -1,12 +1,15 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tharad_tech/core/widgets/profile_image_picker.dart';
+import 'package:tharad_tech/generated/l10n.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theme/app_texts/app_text_styles.dart';
 import '../../../../core/theme/theme_manager/theme_extensions.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
 import '../../../../core/widgets/custom_app_button.dart';
-import 'profile_image_section.dart';
 
 class EditProfileForm extends StatefulWidget {
   const EditProfileForm({super.key});
@@ -27,6 +30,8 @@ class _EditProfileFormState extends State<EditProfileForm> {
   bool _obscureNewPassword = true;
   bool _obscureConfirmPassword = true;
 
+  File? profileImage;
+
   @override
   void dispose() {
     _usernameController.dispose();
@@ -37,78 +42,84 @@ class _EditProfileFormState extends State<EditProfileForm> {
     super.dispose();
   }
 
+  void _onImageSelected(File? image) {
+    setState(() {
+      profileImage = image;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 16.h),
       child: Form(
         key: _formKey,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Username Field
+            verticalSpace(16),
+
             Text(
-              'اسم المستخدم',
+              S.of(context).registerScreenName,
               style: AppTextStyles.font16Regular.copyWith(
                 color: context.customAppColors.grey900,
               ),
             ),
+
             verticalSpace(8),
+
             AppTextFormField(
               controller: _usernameController,
-              hintText: 'thar22',
+              hintText: S.of(context).registerScreenNameHint,
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'الرجاء إدخال اسم المستخدم';
+                  return S.of(context).registerScreenNameHint;
                 }
                 return null;
               },
             ),
+
             verticalSpace(16),
 
-            // Email Field
             Text(
-              'البريد الالكتروني',
+              S.of(context).registerScreenEmail,
               style: AppTextStyles.font16Regular.copyWith(
                 color: context.customAppColors.grey900,
               ),
             ),
+
             verticalSpace(8),
+
             AppTextFormField(
               controller: _emailController,
-              hintText: 'Tharad@gmail.com',
+              hintText: S.of(context).registerScreenEmailHint,
               keyboardType: TextInputType.emailAddress,
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'الرجاء إدخال البريد الإلكتروني';
+                  return S.of(context).registerScreenEmailHint;
                 }
                 return null;
               },
             ),
+
             verticalSpace(16),
 
-            // Profile Image Section
+            ProfileImagePicker(onImageSelected: _onImageSelected),
+
+            verticalSpace(16),
+
             Text(
-              'الصورة الشخصية',
+              S.of(context).editProfileOldPassword,
               style: AppTextStyles.font16Regular.copyWith(
                 color: context.customAppColors.grey900,
               ),
             ),
-            verticalSpace(8),
-            const ProfileImageSection(),
-            verticalSpace(16),
 
-            // Current Password Field
-            Text(
-              'كلمة المرور الحالية',
-              style: AppTextStyles.font16Regular.copyWith(
-                color: context.customAppColors.grey900,
-              ),
-            ),
             verticalSpace(8),
+
             AppTextFormField(
               controller: _currentPasswordController,
-              hintText: '••••••••••',
+              hintText: S.of(context).editProfileOldPasswordHint,
               isObscureText: _obscureCurrentPassword,
               suffixIcon: IconButton(
                 icon: Icon(
@@ -130,9 +141,8 @@ class _EditProfileFormState extends State<EditProfileForm> {
             ),
             verticalSpace(16),
 
-            // New Password Field
             Text(
-              'كلمة المرور الجديدة',
+              S.of(context).editProfileNewPassword,
               style: AppTextStyles.font16Regular.copyWith(
                 color: context.customAppColors.grey900,
               ),
@@ -140,7 +150,7 @@ class _EditProfileFormState extends State<EditProfileForm> {
             verticalSpace(8),
             AppTextFormField(
               controller: _newPasswordController,
-              hintText: '••••••••••',
+              hintText: S.of(context).editProfileNewPasswordHint,
               isObscureText: _obscureNewPassword,
               suffixIcon: IconButton(
                 icon: Icon(
@@ -160,11 +170,11 @@ class _EditProfileFormState extends State<EditProfileForm> {
                 return null;
               },
             ),
+
             verticalSpace(16),
 
-            // Confirm Password Field
             Text(
-              'تأكيد كلمة المرور الجديدة',
+              S.of(context).editProfileConfirmPassword,
               style: AppTextStyles.font16Regular.copyWith(
                 color: context.customAppColors.grey900,
               ),
@@ -172,7 +182,7 @@ class _EditProfileFormState extends State<EditProfileForm> {
             verticalSpace(8),
             AppTextFormField(
               controller: _confirmPasswordController,
-              hintText: '••••••••••',
+              hintText: S.of(context).editProfileConfirmPasswordHint,
               isObscureText: _obscureConfirmPassword,
               suffixIcon: IconButton(
                 icon: Icon(
@@ -192,96 +202,21 @@ class _EditProfileFormState extends State<EditProfileForm> {
                 return null;
               },
             ),
+
             verticalSpace(32),
 
-            // Save Button
             CustomAppButton(
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  // Handle save changes
-                  Navigator.of(context).pop();
-                }
-              },
-              buttonText: 'حفظ التغييرات',
+              onPressed: () {},
+              buttonText: S.of(context).editProfileSaveButton,
               textStyle: AppTextStyles.font18Bold.copyWith(
                 color: context.customAppColors.white,
               ),
             ),
-            verticalSpace(16),
 
-            // Logout Link
-            Center(
-              child: GestureDetector(
-                onTap: () {
-                  _showLogoutDialog(context);
-                },
-                child: Text(
-                  'تسجيل الخروج',
-                  style: AppTextStyles.font16SemiBold.copyWith(
-                    color: context.customAppColors.error,
-                    decoration: TextDecoration.underline,
-                    decorationColor: context.customAppColors.error,
-                  ),
-                ),
-              ),
-            ),
+            verticalSpace(16),
           ],
         ),
       ),
-    );
-  }
-
-  void _showLogoutDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16.r),
-          ),
-          title: Text(
-            'تأكيد تسجيل الخروج',
-            style: AppTextStyles.font20Bold.copyWith(
-              color: context.customAppColors.grey900,
-            ),
-            textAlign: TextAlign.right,
-          ),
-          content: Text(
-            'هل أنت متأكد من رغبتك في تسجيل الخروج من حسابك؟',
-            style: AppTextStyles.font16Regular.copyWith(
-              color: context.customAppColors.grey700,
-            ),
-            textAlign: TextAlign.right,
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text(
-                'إلغاء',
-                style: AppTextStyles.font16SemiBold.copyWith(
-                  color: context.customAppColors.grey700,
-                ),
-              ),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).pop();
-                // Handle logout logic
-                // e.g., clear shared preferences, navigate to login
-              },
-              child: Text(
-                'تسجيل الخروج',
-                style: AppTextStyles.font16Bold.copyWith(
-                  color: context.customAppColors.error,
-                ),
-              ),
-            ),
-          ],
-        );
-      },
     );
   }
 }

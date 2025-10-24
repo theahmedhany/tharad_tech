@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) {
-        return MultiBlocProvider(
-          providers: [BlocProvider(create: (_) => ThemeCubit())],
+        return BlocProvider(
+          create: (_) => ThemeCubit(),
           child: BlocBuilder<ThemeCubit, ThemeMode>(
             builder: (context, newMode) {
               return MaterialApp(

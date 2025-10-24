@@ -5,10 +5,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tharad_tech/core/helpers/spacing.dart';
 import 'package:tharad_tech/generated/l10n.dart';
 
-import '../../../../core/theme/app_texts/app_text_styles.dart';
-import '../../../../core/theme/theme_manager/theme_extensions.dart';
-import '../../../../core/utils/image_picker_utils.dart';
-import '../../../../core/widgets/dashed_border_painter.dart';
+import '../theme/app_texts/app_text_styles.dart';
+import '../theme/theme_manager/theme_extensions.dart';
+import '../utils/image_picker_utils.dart';
+import 'dashed_border_painter.dart';
 
 class ProfileImagePicker extends StatefulWidget {
   final Function(File?) onImageSelected;

@@ -23,6 +23,61 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "appName": MessageLookupByLibrary.simpleMessage("Tharad Tech"),
+    "editProfileConfirmPassword": MessageLookupByLibrary.simpleMessage(
+      "Confirm Password",
+    ),
+    "editProfileConfirmPasswordHint": MessageLookupByLibrary.simpleMessage(
+      "Re-enter your new password",
+    ),
+    "editProfileNewPassword": MessageLookupByLibrary.simpleMessage(
+      "New Password",
+    ),
+    "editProfileNewPasswordHint": MessageLookupByLibrary.simpleMessage(
+      "Enter your new password",
+    ),
+    "editProfileOldPassword": MessageLookupByLibrary.simpleMessage(
+      "Old Password",
+    ),
+    "editProfileOldPasswordHint": MessageLookupByLibrary.simpleMessage(
+      "Enter your old password",
+    ),
+    "editProfileSaveButton": MessageLookupByLibrary.simpleMessage(
+      "Save Changes",
+    ),
+    "editProfileScreenTitle": MessageLookupByLibrary.simpleMessage(
+      "Edit Your Profile",
+    ),
+    "homeDarkThemeDescription": MessageLookupByLibrary.simpleMessage(
+      "Use the dark theme to reduce eye strain in low light conditions.",
+    ),
+    "homeLightThemeDescription": MessageLookupByLibrary.simpleMessage(
+      "Use the light theme for better visibility in bright environments.",
+    ),
+    "homeLogoutConfirmationTitle": MessageLookupByLibrary.simpleMessage(
+      "Logout Confirmation",
+    ),
+    "homeScreenCancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "homeScreenEditProfile": MessageLookupByLibrary.simpleMessage(
+      "Edit Profile",
+    ),
+    "homeScreenLogout": MessageLookupByLibrary.simpleMessage("Logout"),
+    "homeScreenLogoutConfirmation": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to logout?",
+    ),
+    "homeScreenQuickActions": MessageLookupByLibrary.simpleMessage(
+      "Quick Actions",
+    ),
+    "homeScreenTheme": MessageLookupByLibrary.simpleMessage("Theme"),
+    "homeScreenWelcome": MessageLookupByLibrary.simpleMessage("Home Page"),
+    "homeSystemThemeDescription": MessageLookupByLibrary.simpleMessage(
+      "Automatically switch themes based on your device settings.",
+    ),
+    "homeThemeBottomSheet": MessageLookupByLibrary.simpleMessage(
+      "Choose App Theme",
+    ),
+    "homeThemeDark": MessageLookupByLibrary.simpleMessage("Dark Theme"),
+    "homeThemeLight": MessageLookupByLibrary.simpleMessage("Light Theme"),
+    "homeThemeSystem": MessageLookupByLibrary.simpleMessage("System Default"),
     "loginScreenDontHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
     ),

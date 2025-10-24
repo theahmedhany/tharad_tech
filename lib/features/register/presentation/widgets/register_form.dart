@@ -8,7 +8,7 @@ import 'package:tharad_tech/generated/l10n.dart';
 import '../../../../core/theme/app_texts/app_text_styles.dart';
 import '../../../../core/theme/theme_manager/theme_extensions.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
-import 'profile_image_picker.dart';
+import '../../../../core/widgets/profile_image_picker.dart';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({super.key});

@@ -46,6 +46,31 @@
   "otpScreenVerifyButton": "Verify",
   "otpScreenInvalidCode": "Please enter a valid 4-digit code.",
   "otpScreenSuccess": "Verification successful!",
-  "otpScreenFailure": "Verification failed. Please try again."
+  "otpScreenFailure": "Verification failed. Please try again.",
 
+  "homeScreenWelcome": "Home Page",
+  "homeScreenEditProfile": "Edit Profile",
+  "homeScreenTheme": "Theme",
+  "homeScreenQuickActions": "Quick Actions",
+    "homeScreenLogout": "Logout",
+  "homeLogoutConfirmationTitle": "Logout Confirmation",
+  "homeScreenLogoutConfirmation": "Are you sure you want to logout?",
+  "homeScreenCancel": "Cancel",
+
+  "homeThemeBottomSheet": "Choose App Theme",
+  "homeThemeLight": "Light Theme",
+  "homeLightThemeDescription": "Use the light theme for better visibility in bright environments.",
+  "homeThemeDark": "Dark Theme",
+  "homeDarkThemeDescription": "Use the dark theme to reduce eye strain in low light conditions.",
+  "homeThemeSystem": "System Default",
+  "homeSystemThemeDescription": "Automatically switch themes based on your device settings.",
+
+  "editProfileScreenTitle": "Edit Your Profile",
+  "editProfileOldPassword": "Old Password",
+  "editProfileOldPasswordHint": "Enter your old password",
+  "editProfileNewPassword": "New Password",
+  "editProfileNewPasswordHint": "Enter your new password",
+  "editProfileConfirmPassword": "Confirm Password",
+  "editProfileConfirmPasswordHint": "Re-enter your new password",
+  "editProfileSaveButton": "Save Changes"
 }
