@@ -1,8 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tharad_tech/core/helpers/app_regex.dart';
 import 'package:tharad_tech/core/helpers/spacing.dart';
+import 'package:tharad_tech/features/register/presentation/logic/register_cubit.dart';
 import 'package:tharad_tech/generated/l10n.dart';
 
 import '../../../../core/theme/app_texts/app_text_styles.dart';
@@ -18,35 +21,19 @@ class RegisterForm extends StatefulWidget {
 }
 
 class _RegisterFormState extends State<RegisterForm> {
-  final _formKey = GlobalKey<FormState>();
-  final _usernameController = TextEditingController();
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-  final _confirmPasswordController = TextEditingController();
-
   bool _isPasswordVisible = false;
   bool _isConfirmPasswordVisible = false;
-  File? profileImage;
-
-  @override
-  void dispose() {
-    _usernameController.dispose();
-    _emailController.dispose();
-    _passwordController.dispose();
-    _confirmPasswordController.dispose();
-    super.dispose();
-  }
 
   void _onImageSelected(File? image) {
     setState(() {
-      profileImage = image;
+      context.read<RegisterCubit>().profileImage = image;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: _formKey,
+      key: context.read<RegisterCubit>().formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -64,9 +51,15 @@ class _RegisterFormState extends State<RegisterForm> {
           verticalSpace(8),
 
           AppTextFormField(
-            controller: _usernameController,
+            controller: context.read<RegisterCubit>().userNameController,
             hintText: S.of(context).registerScreenNameHint,
-            validator: (p0) {},
+            validator: (value) {
+              final trimmedValue = value?.trim() ?? '';
+              if (trimmedValue.isEmpty) {
+                return 'من فضلك أدخل اسم المستخدم.';
+              }
+              return null;
+            },
           ),
 
           verticalSpace(24),
@@ -81,10 +74,17 @@ class _RegisterFormState extends State<RegisterForm> {
           verticalSpace(8),
 
           AppTextFormField(
-            controller: _emailController,
+            controller: context.read<RegisterCubit>().emailController,
             hintText: S.of(context).registerScreenEmailHint,
             keyboardType: TextInputType.emailAddress,
-            validator: (p0) {},
+            validator: (value) {
+              final trimmedValue = value?.trim() ?? '';
+              if (trimmedValue.isEmpty ||
+                  !AppRegex.isEmailValid(trimmedValue)) {
+                return 'من فضلك أدخل البريد الإلكتروني.';
+              }
+              return null;
+            },
           ),
 
           verticalSpace(24),
@@ -99,10 +99,30 @@ class _RegisterFormState extends State<RegisterForm> {
           verticalSpace(8),
 
           AppTextFormField(
-            controller: _passwordController,
+            controller: context.read<RegisterCubit>().passwordController,
             hintText: S.of(context).registerScreenPasswordHint,
             isObscureText: !_isPasswordVisible,
-            validator: (p0) {},
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'من فضلك أدخل كلمة المرور.';
+              }
+              if (!AppRegex.hasLowerCase(value)) {
+                return 'يحب أن تحتوي كلمة المرور علي حروف صغيرة.';
+              }
+              if (!AppRegex.hasUpperCase(value)) {
+                return 'يجب أن تحتوي كلمة المرور علي حروف كبيرة.';
+              }
+              if (!AppRegex.hasNumber(value)) {
+                return 'يجب أن تحتوي كلمة المرور علي رقم.';
+              }
+              if (!AppRegex.hasSpecialCharacter(value)) {
+                return 'يجب أن تحتوي كلمة المرور علي حرف خاص.';
+              }
+              if (!AppRegex.hasMinLength(value)) {
+                return 'يجب ألا تقل كلمة المرور عن 8 أحرف.';
+              }
+              return null;
+            },
             suffixIcon: IconButton(
               onPressed: () {
                 setState(() {
@@ -131,10 +151,19 @@ class _RegisterFormState extends State<RegisterForm> {
           verticalSpace(8),
 
           AppTextFormField(
-            controller: _confirmPasswordController,
+            controller: context.read<RegisterCubit>().confirmPasswordController,
             hintText: S.of(context).registerScreenConfirmPasswordHint,
             isObscureText: !_isConfirmPasswordVisible,
-            validator: (p0) {},
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'من فضلك أدخل تأكيد كلمة المرور.';
+              }
+              if (value !=
+                  context.read<RegisterCubit>().passwordController.text) {
+                return 'كلمة المرور غير متوافقة.';
+              }
+              return null;
+            },
             suffixIcon: IconButton(
               onPressed: () {
                 setState(() {

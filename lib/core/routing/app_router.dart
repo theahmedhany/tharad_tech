@@ -6,7 +6,10 @@ import 'package:tharad_tech/features/edit_profile/presentation/screens/edit_prof
 import 'package:tharad_tech/features/home/presentation/screens/home_screen.dart';
 import 'package:tharad_tech/features/login/presentation/logic/login_cubit.dart';
 import 'package:tharad_tech/features/login/presentation/screens/login_screen.dart';
+import 'package:tharad_tech/features/register/presentation/logic/register_cubit.dart';
 import 'package:tharad_tech/features/register/presentation/screens/register_screen.dart';
+import 'package:tharad_tech/features/verify_email/data/repos/otp_repo.dart';
+import 'package:tharad_tech/features/verify_email/presentation/logic/otp_cubit.dart';
 import 'package:tharad_tech/features/verify_email/presentation/screens/otp_screen.dart';
 
 class AppRouter {
@@ -23,12 +26,22 @@ class AppRouter {
 
       // Register Screen
       case Routes.registerScreen:
-        return MaterialPageRoute(builder: (_) => const RegisterScreen());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<RegisterCubit>(),
+            child: const RegisterScreen(),
+          ),
+        );
 
       // OTP Screen
       case Routes.otpScreen:
-        final email = settings.arguments as String;
-        return MaterialPageRoute(builder: (_) => OtpScreen(email: email));
+        final args = settings.arguments as Map<String, dynamic>?;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => OtpCubit(getIt<OtpRepo>()),
+            child: OtpScreen(email: args?['email'], otp: args?['otp']),
+          ),
+        );
 
       // Home Screen
       case Routes.homeScreen:

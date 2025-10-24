@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tharad_tech/core/theme/theme_manager/theme_extensions.dart';
+import 'package:tharad_tech/features/verify_email/presentation/widgets/otp_bloc_listener.dart';
 import 'package:tharad_tech/features/verify_email/presentation/widgets/otp_header.dart';
 import 'package:tharad_tech/generated/l10n.dart';
 
@@ -10,7 +11,8 @@ import '../widgets/custom_otp_verify_form.dart';
 
 class OtpScreen extends StatelessWidget {
   final String email;
-  const OtpScreen({super.key, required this.email});
+  final int otp;
+  const OtpScreen({super.key, required this.email, required this.otp});
 
   @override
   Widget build(BuildContext context) {
@@ -49,9 +51,11 @@ class OtpScreen extends StatelessWidget {
 
                 verticalSpace(60),
 
-                CustomOtpVerifyForm(email: email),
+                CustomOtpVerifyForm(email: email, initialOtp: otp),
 
                 verticalSpace(24),
+
+                const OtpBlocListener(),
               ],
             ),
           ),

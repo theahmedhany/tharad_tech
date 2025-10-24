@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tharad_tech/core/di/dependency_injection.dart';
 import 'package:tharad_tech/core/helpers/shared_pref_helper.dart';
 import 'package:tharad_tech/core/routing/app_router.dart';
+import 'package:tharad_tech/core/utils/constants.dart';
 
 import 'my_app.dart';
 
@@ -24,7 +25,7 @@ void main() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  // await checkIfLoggedInUser();
+  await checkIfLoggedInUser();
 
   runApp(
     DevicePreview(
@@ -36,14 +37,14 @@ void main() async {
   );
 }
 
-// checkIfLoggedInUser() async {
-//   String? userToken = await SharedPrefHelper.getSecuredString(
-//     key: SharedPrefKeys.userToken,
-//   );
+checkIfLoggedInUser() async {
+  String? userToken = await SharedPrefHelper.getSecuredString(
+    key: SharedPrefKeys.userToken,
+  );
 
-//   if (userToken != null && userToken.isNotEmpty) {
-//     isLoggedInUser = true;
-//   } else {
-//     isLoggedInUser = false;
-//   }
-// }
+  if (userToken != null && userToken.isNotEmpty) {
+    isLoggedInUser = true;
+  } else {
+    isLoggedInUser = false;
+  }
+}

@@ -4,6 +4,9 @@ class ApiConstants {
 
   // Auth Endpoints
   static const String apiLogin = "auth/login";
+  static const String apiRegister = "auth/register";
+  static const String apiLogout = "auth/logout";
+  static const String apiOtp = "otp";
 }
 
 class ApiErrors {

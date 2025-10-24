@@ -7,6 +7,7 @@ import 'package:tharad_tech/core/routing/routes.dart';
 import 'package:tharad_tech/core/theme/theme_data/dark_them_data.dart';
 import 'package:tharad_tech/core/theme/theme_data/light_theme_data.dart';
 import 'package:tharad_tech/core/theme/theme_manager/theme_cubit.dart';
+import 'package:tharad_tech/core/utils/constants.dart';
 import 'package:tharad_tech/generated/l10n.dart';
 
 class MyApp extends StatelessWidget {
@@ -45,10 +46,9 @@ class MyApp extends StatelessWidget {
                 // Set the initial route based on user authentication and role
                 onGenerateRoute: appRouter.generateRoute,
 
-                // initialRoute: isLoggedInUser
-                //     ? Routes.homeScreen
-                //     : Routes.loginScreen,
-                initialRoute: Routes.loginScreen,
+                initialRoute: isLoggedInUser
+                    ? Routes.homeScreen
+                    : Routes.loginScreen,
               );
             },
           ),

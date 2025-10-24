@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
-import 'package:tharad_tech/core/helpers/extensions.dart';
-import 'package:tharad_tech/core/routing/routes.dart';
 import 'package:tharad_tech/core/theme/theme_manager/theme_extensions.dart';
 import 'package:tharad_tech/core/widgets/custom_app_button.dart';
+import 'package:tharad_tech/features/verify_email/presentation/logic/otp_cubit.dart';
 import 'package:tharad_tech/generated/l10n.dart';
 
 import '../../../../core/helpers/spacing.dart';
@@ -12,7 +12,12 @@ import '../../../../core/theme/app_texts/app_text_styles.dart';
 
 class CustomOtpVerifyForm extends StatefulWidget {
   final String email;
-  const CustomOtpVerifyForm({super.key, required this.email});
+  final int initialOtp;
+  const CustomOtpVerifyForm({
+    super.key,
+    required this.email,
+    required this.initialOtp,
+  });
 
   @override
   State<CustomOtpVerifyForm> createState() => _CustomOtpVerifyFormState();
@@ -20,14 +25,21 @@ class CustomOtpVerifyForm extends StatefulWidget {
 
 class _CustomOtpVerifyFormState extends State<CustomOtpVerifyForm> {
   final FocusNode _focusNode = FocusNode();
+  final TextEditingController _otpController = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String? _errorMessage;
 
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      // context.read<VerifyOtpCubit>().emailController.text = widget.email;
-    });
+    _otpController.text = widget.initialOtp.toString();
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    _otpController.dispose();
+    super.dispose();
   }
 
   PinTheme get _defaultPinTheme => PinTheme(
@@ -70,12 +82,12 @@ class _CustomOtpVerifyFormState extends State<CustomOtpVerifyForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      // key: context.read<VerifyOtpCubit>().formKey,
+      key: _formKey,
       child: Column(
         children: [
           Center(
             child: Pinput(
-              // controller: context.read<VerifyOtpCubit>().otpController,
+              controller: _otpController,
               focusNode: _focusNode,
               length: 4,
               showCursor: true,
@@ -125,7 +137,7 @@ class _CustomOtpVerifyFormState extends State<CustomOtpVerifyForm> {
             children: [
               TextButton(
                 onPressed: () {
-                  // context.read<VerifyOtpCubit>().resendOtpCode();
+                  // TODO: Implement resend OTP functionality
                 },
                 child: Text(
                   S.of(context).otpScreenResendCode,
@@ -138,7 +150,7 @@ class _CustomOtpVerifyFormState extends State<CustomOtpVerifyForm> {
 
               TextButton(
                 onPressed: () {
-                  // context.read<VerifyOtpCubit>().otpController.clear();
+                  _otpController.clear();
                   setState(() => _errorMessage = null);
                   _focusNode.requestFocus();
                 },
@@ -159,30 +171,28 @@ class _CustomOtpVerifyFormState extends State<CustomOtpVerifyForm> {
             textStyle: AppTextStyles.font16Bold.copyWith(
               color: context.customAppColors.white,
             ),
-            onPressed: () {
-              context.pushNamed(Routes.homeScreen);
-            },
+            onPressed: _validateAndVerify,
           ),
         ],
       ),
     );
   }
 
-  // void _validateAndProceed() {
-  // final otp = context.read<VerifyOtpCubit>().otpController.text.trim();
+  void _validateAndVerify() {
+    final otp = _otpController.text.trim();
 
-  // if (otp.length < 6) {
-  //   setState(() {
-  //     _errorMessage = "Please enter a valid 6-digit code.";
-  //   });
-  // } else {
-  //   setState(() {
-  //     _errorMessage = null;
-  //   });
+    if (otp.length < 4) {
+      setState(() {
+        _errorMessage = S.of(context).otpScreenInvalidCode;
+      });
+    } else {
+      setState(() {
+        _errorMessage = null;
+      });
 
-  //   if (context.read<VerifyOtpCubit>().formKey.currentState!.validate()) {
-  //     context.read<VerifyOtpCubit>().emitVerifyOtpStates();
-  //   }
-  // }
-  // }
+      if (_formKey.currentState!.validate()) {
+        context.read<OtpCubit>().emitVerifyOtp(widget.email, otp);
+      }
+    }
+  }
 }
