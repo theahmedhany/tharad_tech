@@ -76,24 +76,12 @@ Before you begin, ensure you have the following installed:
    flutter run
    ```
 
-   For specific device:
-
-   ```bash
-   flutter run -d <device-id>
-   ```
-
 5. **Build for Production**
 
    **Android (APK):**
 
    ```bash
    flutter build apk --release
-   ```
-
-   **Android (App Bundle):**
-
-   ```bash
-   flutter build appbundle --release
    ```
 
    **iOS:**
@@ -630,7 +618,7 @@ final currentTheme = context.read<ThemeCubit>().state
 
 https://github.com/user-attachments/assets/0229338a-b9e4-4d17-9906-54127af9dadb
 
-> A comprehensive walkthrough showcasing all app features including authentication, profile management, theme switching, and community browsing.
+> A comprehensive walkthrough showcasing all app features including authentication, profile management, theme switching, and Update Profile.
 
 ### APK Download
 
