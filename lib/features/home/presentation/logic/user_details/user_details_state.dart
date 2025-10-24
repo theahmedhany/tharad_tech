@@ -6,6 +6,9 @@ part 'user_details_state.freezed.dart';
 class UserDetailsState<T> with _$UserDetailsState<T> {
   const factory UserDetailsState.idle() = Idle<T>;
   const factory UserDetailsState.loading() = Loading<T>;
-  const factory UserDetailsState.success(T data) = Success<T>;
+  const factory UserDetailsState.success({
+    required T userResponse,
+    required bool isFromCache,
+  }) = Success<T>;
   const factory UserDetailsState.error({required String error}) = Error;
 }

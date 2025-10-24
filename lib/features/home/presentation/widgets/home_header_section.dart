@@ -23,7 +23,7 @@ class HomeHeaderSection extends StatelessWidget {
         return state.when(
           idle: () => const HomeHeaderSectionShimmer(),
           loading: () => const HomeHeaderSectionShimmer(),
-          success: (data) {
+          success: (data, isFromCache) {
             return Container(
               width: double.infinity,
               decoration: BoxDecoration(

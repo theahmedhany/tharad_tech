@@ -21,11 +21,11 @@ Map<String, dynamic> _$RegisterResponseToJson(RegisterResponse instance) =>
     };
 
 RegisterData _$RegisterDataFromJson(Map<String, dynamic> json) => RegisterData(
-  email: json['email'] as String,
-  image: json['image'] as String,
-  username: json['username'] as String,
-  otp: (json['otp'] as num).toInt(),
-);
+      email: json['email'] as String,
+      image: json['image'] as String,
+      username: json['username'] as String,
+      otp: (json['otp'] as num).toInt(),
+    );
 
 Map<String, dynamic> _$RegisterDataToJson(RegisterData instance) =>
     <String, dynamic>{

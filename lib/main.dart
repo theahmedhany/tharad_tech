@@ -6,6 +6,7 @@ import 'package:tharad_tech/core/di/dependency_injection.dart';
 import 'package:tharad_tech/core/helpers/shared_pref_helper.dart';
 import 'package:tharad_tech/core/routing/app_router.dart';
 import 'package:tharad_tech/core/utils/constants.dart';
+import 'package:tharad_tech/features/home/data/cache/hive_service.dart';
 
 import 'my_app.dart';
 
@@ -14,6 +15,7 @@ void main() async {
   await ScreenUtil.ensureScreenSize();
   await SharedPrefHelper.init();
   await initGetIt();
+  await HiveService.init();
 
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
   SystemChrome.setSystemUIOverlayStyle(

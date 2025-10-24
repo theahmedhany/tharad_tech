@@ -7,7 +7,6 @@ import 'package:tharad_tech/features/register/data/repos/register_repo.dart';
 import 'package:tharad_tech/features/register/presentation/logic/register_state.dart';
 
 import '../../../../../core/networking/api_error_handler.dart';
-import '../../../../../core/networking/api_result.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
   final RegisterRepo _registerRepo;
