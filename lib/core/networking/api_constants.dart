@@ -7,6 +7,9 @@ class ApiConstants {
   static const String apiRegister = "auth/register";
   static const String apiLogout = "auth/logout";
   static const String apiOtp = "otp";
+
+  static const String apiUserDetails = "profile-details";
+  static const String apiUpdateProfile = "Update-Profile";
 }
 
 class ApiErrors {

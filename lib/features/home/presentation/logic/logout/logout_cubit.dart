@@ -1,9 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tharad_tech/core/helpers/shared_pref_helper.dart';
+import 'package:tharad_tech/core/networking/api_error_handler.dart';
+import 'package:tharad_tech/core/networking/api_result.dart';
 import 'package:tharad_tech/features/home/data/repos/logout_repo.dart';
 
-import '../../../../core/helpers/shared_pref_helper.dart';
-import '../../../../core/networking/api_error_handler.dart';
-import '../../../../core/networking/api_result.dart';
 import 'logout_state.dart';
 
 class LogoutCubit extends Cubit<LogoutState> {
@@ -19,10 +19,16 @@ class LogoutCubit extends Cubit<LogoutState> {
     response.when(
       success: (_) async {
         await clearUserData();
-        emit(const LogoutState.success(null));
+        if (!isClosed) {
+          emit(const LogoutState.success(null));
+        }
       },
       failure: (error) {
-        emit(LogoutState.error(error: AppErrorHandler.getErrorMessage(error)));
+        if (!isClosed) {
+          emit(
+            LogoutState.error(error: AppErrorHandler.getErrorMessage(error)),
+          );
+        }
       },
     );
   }

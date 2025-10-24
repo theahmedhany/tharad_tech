@@ -1,7 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:tharad_tech/features/home/data/repos/logout_repo.dart';
-import 'package:tharad_tech/features/home/presentation/logic/logout_cubit.dart';
+import 'package:tharad_tech/features/home/data/repos/user_details_repo.dart';
+import 'package:tharad_tech/features/home/presentation/logic/logout/logout_cubit.dart';
+import 'package:tharad_tech/features/home/presentation/logic/user_details/user_details_cubit.dart';
 import 'package:tharad_tech/features/login/data/repos/login_repo.dart';
 import 'package:tharad_tech/features/login/presentation/logic/login_cubit.dart';
 import 'package:tharad_tech/features/register/data/repos/register_repo.dart';
@@ -36,4 +38,10 @@ Future<void> initGetIt() async {
   // Logout
   getIt.registerLazySingleton<LogoutRepo>(() => LogoutRepo(getIt()));
   getIt.registerFactory<LogoutCubit>(() => LogoutCubit(getIt<LogoutRepo>()));
+
+  // User Details
+  getIt.registerLazySingleton<UserDetailsRepo>(() => UserDetailsRepo(getIt()));
+  getIt.registerFactory<UserDetailsCubit>(
+    () => UserDetailsCubit(getIt<UserDetailsRepo>()),
+  );
 }

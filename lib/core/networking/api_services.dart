@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
+import 'package:tharad_tech/features/home/data/models/user_details_model.dart';
 import 'package:tharad_tech/features/login/data/models/login_request_body.dart';
 import 'package:tharad_tech/features/login/data/models/login_response.dart';
 import 'package:tharad_tech/features/register/data/models/register_response.dart';
@@ -32,4 +33,8 @@ abstract class ApiServices {
   // Logout API
   @DELETE(ApiConstants.apiLogout)
   Future<HttpResponse> logout();
+
+  // User Details API
+  @GET(ApiConstants.apiUserDetails)
+  Future<UserDetailsModel> userDetails();
 }

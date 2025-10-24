@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tharad_tech/features/home/presentation/logic/logout_cubit.dart';
-import 'package:tharad_tech/features/home/presentation/logic/logout_state.dart';
+import 'package:tharad_tech/features/home/presentation/logic/logout/logout_cubit.dart';
+import 'package:tharad_tech/features/home/presentation/logic/logout/logout_state.dart';
 
 import '../../../../core/helpers/extensions.dart';
 import '../../../../core/routing/routes.dart';
@@ -22,9 +22,11 @@ class LogoutBlocListener extends StatelessWidget {
           loading: () => _showLoadingDialog(context),
           success: (_) {
             context.pop();
+            context.pop();
             _navigateToLogin(context);
           },
           error: (error) {
+            context.pop();
             context.pop();
             _showErrorDialog(context, error);
           },
