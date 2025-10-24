@@ -33,6 +33,7 @@ class LoginScreen extends StatelessWidget {
 
               Text(
                 S.of(context).loginScreenTitle,
+                textAlign: TextAlign.center,
                 style: AppTextStyles.font24Bold.copyWith(
                   color: context.customAppColors.grey900,
                 ),

@@ -78,6 +78,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "homeThemeDark": MessageLookupByLibrary.simpleMessage("Dark Theme"),
     "homeThemeLight": MessageLookupByLibrary.simpleMessage("Light Theme"),
     "homeThemeSystem": MessageLookupByLibrary.simpleMessage("System Default"),
+    "imageSizeExceeds5MB": MessageLookupByLibrary.simpleMessage(
+      "Image size exceeds 5 MB. Please choose a smaller image.",
+    ),
     "loginScreenDontHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
     ),

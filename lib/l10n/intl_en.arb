@@ -24,6 +24,7 @@
   "registerScreenCamera": "Camera",
   "registerScreenGallery": "Gallery",
   "registerAvailableImages": "Allowed file types: PNG, JPEG",
+  "imageSizeExceeds5MB": "Image size exceeds 5 MB. Please choose a smaller image.",
   "registerScreenName": "Username",
   "registerScreenNameHint": "Enter your username",
   "registerScreenEmail": "Email",

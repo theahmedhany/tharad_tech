@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
+import 'package:tharad_tech/features/edit_profile/data/models/edit_profile_response.dart';
 import 'package:tharad_tech/features/home/data/models/user_details_model.dart';
 import 'package:tharad_tech/features/login/data/models/login_request_body.dart';
 import 'package:tharad_tech/features/login/data/models/login_response.dart';
@@ -37,4 +38,9 @@ abstract class ApiServices {
   // User Details API
   @GET(ApiConstants.apiUserDetails)
   Future<UserDetailsModel> userDetails();
+
+  // Edit Profile API
+  @POST(ApiConstants.apiEditProfile)
+  @MultiPart()
+  Future<EditProfileResponse> editProfile(@Body() FormData formData);
 }

@@ -9,7 +9,7 @@ class ApiConstants {
   static const String apiOtp = "otp";
 
   static const String apiUserDetails = "profile-details";
-  static const String apiUpdateProfile = "Update-Profile";
+  static const String apiEditProfile = "Update-Profile";
 }
 
 class ApiErrors {

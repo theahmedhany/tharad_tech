@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tharad_tech/core/helpers/extensions.dart';
 import 'package:tharad_tech/core/helpers/spacing.dart';
+import 'package:tharad_tech/features/home/data/models/user_details_model.dart';
 import 'package:tharad_tech/generated/l10n.dart';
 
 import '../../../../core/theme/theme_manager/theme_extensions.dart';
 import '../widgets/edit_profile_form.dart';
 
 class EditProfileScreen extends StatelessWidget {
-  const EditProfileScreen({super.key});
+  final UserDetailsModel? userData;
+
+  const EditProfileScreen({super.key, this.userData});
 
   @override
   Widget build(BuildContext context) {
@@ -97,9 +100,9 @@ class EditProfileScreen extends StatelessWidget {
                       topRight: Radius.circular(24.r),
                     ),
                   ),
-                  child: const SingleChildScrollView(
+                  child: SingleChildScrollView(
                     physics: BouncingScrollPhysics(),
-                    child: EditProfileForm(),
+                    child: EditProfileForm(userData: userData),
                   ),
                 ),
               ),

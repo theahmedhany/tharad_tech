@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:tharad_tech/features/edit_profile/data/repos/edit_profile_repo.dart';
+import 'package:tharad_tech/features/edit_profile/presentation/logic/edit_profile_cubit.dart';
 import 'package:tharad_tech/features/home/data/repos/logout_repo.dart';
 import 'package:tharad_tech/features/home/data/repos/user_details_repo.dart';
 import 'package:tharad_tech/features/home/presentation/logic/logout/logout_cubit.dart';
@@ -43,5 +45,11 @@ Future<void> initGetIt() async {
   getIt.registerLazySingleton<UserDetailsRepo>(() => UserDetailsRepo(getIt()));
   getIt.registerFactory<UserDetailsCubit>(
     () => UserDetailsCubit(getIt<UserDetailsRepo>()),
+  );
+
+  // Edit Profile
+  getIt.registerLazySingleton<EditProfileRepo>(() => EditProfileRepo(getIt()));
+  getIt.registerFactory<EditProfileCubit>(
+    () => EditProfileCubit(getIt<EditProfileRepo>()),
   );
 }

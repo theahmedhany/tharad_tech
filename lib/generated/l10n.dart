@@ -274,6 +274,16 @@ class S {
     );
   }
 
+  /// `Image size exceeds 5 MB. Please choose a smaller image.`
+  String get imageSizeExceeds5MB {
+    return Intl.message(
+      'Image size exceeds 5 MB. Please choose a smaller image.',
+      name: 'imageSizeExceeds5MB',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Username`
   String get registerScreenName {
     return Intl.message(
@@ -709,7 +719,10 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   const AppLocalizationDelegate();
 
   List<Locale> get supportedLocales {
-    return const <Locale>[Locale.fromSubtags(languageCode: 'en')];
+    return const <Locale>[
+      Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'ar'),
+    ];
   }
 
   @override

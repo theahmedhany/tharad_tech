@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
                   GlobalWidgetsLocalizations.delegate,
                   GlobalCupertinoLocalizations.delegate,
                 ],
-                locale: const Locale('en'),
+                locale: const Locale('ar'),
                 supportedLocales: S.delegate.supportedLocales,
 
                 // Set the initial route based on user authentication and role

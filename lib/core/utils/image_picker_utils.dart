@@ -4,6 +4,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:tharad_tech/core/widgets/show_custom_snack_bar.dart';
 import 'package:tharad_tech/generated/l10n.dart';
 
 import '../helpers/spacing.dart';
@@ -25,7 +26,10 @@ class ImagePickerUtils {
     );
   }
 
-  static Future<File?> _pickImage(ImageSource source) async {
+  static Future<File?> _pickImage(
+    ImageSource source, {
+    BuildContext? context,
+  }) async {
     try {
       final XFile? image = await _picker.pickImage(
         source: source,
@@ -35,7 +39,22 @@ class ImagePickerUtils {
       );
 
       if (image != null) {
-        return File(image.path);
+        final file = File(image.path);
+        final fileSize = await file.length();
+        const maxSizeInBytes = 5 * 1024 * 1024;
+
+        if (fileSize > maxSizeInBytes) {
+          if (context != null && context.mounted) {
+            showCustomSnackBar(
+              context,
+              S.of(context).imageSizeExceeds5MB,
+              backgroundColor: context.customAppColors.error,
+            );
+          }
+          return null;
+        }
+
+        return file;
       }
       return null;
     } catch (e) {
@@ -117,6 +136,7 @@ class _ImagePickerBottomSheet extends StatelessWidget {
                         onTap: () async {
                           final image = await ImagePickerUtils._pickImage(
                             ImageSource.camera,
+                            context: context,
                           );
                           if (context.mounted) {
                             Navigator.pop(context, image);
@@ -134,6 +154,7 @@ class _ImagePickerBottomSheet extends StatelessWidget {
                         onTap: () async {
                           final image = await ImagePickerUtils._pickImage(
                             ImageSource.gallery,
+                            context: context,
                           );
                           if (context.mounted) {
                             Navigator.pop(context, image);

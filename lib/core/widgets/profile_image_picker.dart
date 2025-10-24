@@ -1,8 +1,10 @@
 import 'dart:io';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tharad_tech/core/helpers/spacing.dart';
+import 'package:tharad_tech/core/widgets/custom_loading.dart';
 import 'package:tharad_tech/generated/l10n.dart';
 
 import '../theme/app_texts/app_text_styles.dart';
@@ -12,8 +14,13 @@ import 'dashed_border_painter.dart';
 
 class ProfileImagePicker extends StatefulWidget {
   final Function(File?) onImageSelected;
+  final String? initialImageUrl;
 
-  const ProfileImagePicker({super.key, required this.onImageSelected});
+  const ProfileImagePicker({
+    super.key,
+    required this.onImageSelected,
+    this.initialImageUrl,
+  });
 
   @override
   State<ProfileImagePicker> createState() => _ProfileImagePickerState();
@@ -82,6 +89,49 @@ class _ProfileImagePickerState extends State<ProfileImagePicker> {
                             fit: BoxFit.cover,
                           ),
 
+                          Positioned(
+                            top: 8.h,
+                            left: 8.w,
+                            child: Container(
+                              padding: EdgeInsets.all(4.w),
+                              decoration: BoxDecoration(
+                                color: context.customAppColors.primary700
+                                    .withValues(alpha: 0.6),
+                                shape: BoxShape.circle,
+                              ),
+                              child: Icon(
+                                Icons.camera,
+                                size: 16.sp,
+                                color: context.customAppColors.white,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  : widget.initialImageUrl != null
+                  ? ClipRRect(
+                      borderRadius: BorderRadius.circular(14.r),
+                      child: Stack(
+                        children: [
+                          CachedNetworkImage(
+                            imageUrl: widget.initialImageUrl!,
+                            height: 100.h,
+                            width: double.infinity,
+                            fit: BoxFit.cover,
+                            placeholder: (context, url) {
+                              return Center(child: CustomLoading(size: 40));
+                            },
+                            errorWidget: (context, url, error) {
+                              return Center(
+                                child: Icon(
+                                  Icons.person_outline,
+                                  size: 40.sp,
+                                  color: context.customAppColors.grey400,
+                                ),
+                              );
+                            },
+                          ),
                           Positioned(
                             top: 8.h,
                             left: 8.w,

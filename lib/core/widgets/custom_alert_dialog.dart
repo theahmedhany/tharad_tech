@@ -58,6 +58,7 @@ class CustomAlertDialog extends StatelessWidget {
             verticalSpace(20),
             Text(
               dialogHeader,
+              textAlign: TextAlign.center,
               style: AppTextStyles.font18Bold.copyWith(
                 color: context.customAppColors.grey900,
               ),
