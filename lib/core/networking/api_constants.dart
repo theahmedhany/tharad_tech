@@ -1,10 +1,9 @@
 class ApiConstants {
   // Base URL for the API
-  static const String apiBaseUrl =
-      "https://qutuf-eldad-education-solution.onrender.com/api/";
+  static const String apiBaseUrl = "https://flutter.tharadtech.com/api/";
 
   // Auth Endpoints
-  static const String apiLogin = "Auth/Login";
+  static const String apiLogin = "auth/login";
 }
 
 class ApiErrors {

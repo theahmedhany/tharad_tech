@@ -86,7 +86,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Enter your email",
     ),
     "loginScreenFailure": MessageLookupByLibrary.simpleMessage(
-      "Login failed. Please check your credentials.",
+      "Login failed. Please try again.",
     ),
     "loginScreenForgotPassword": MessageLookupByLibrary.simpleMessage(
       "Forgot Password?",
@@ -104,6 +104,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "loginScreenRememberMe": MessageLookupByLibrary.simpleMessage(
       "Remember Me",
+    ),
+    "loginScreenRememberMeRequired": MessageLookupByLibrary.simpleMessage(
+      "Please check Remember Me to continue.",
     ),
     "loginScreenSignUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "loginScreenSuccess": MessageLookupByLibrary.simpleMessage(

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tharad_tech/core/helpers/app_regex.dart';
 import 'package:tharad_tech/core/helpers/spacing.dart';
+import 'package:tharad_tech/features/login/presentation/logic/login_cubit.dart';
 import 'package:tharad_tech/generated/l10n.dart';
 
 import '../../../../core/theme/app_texts/app_text_styles.dart';
@@ -15,24 +18,13 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
-  final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-
   bool _isPasswordVisible = false;
   bool _rememberMe = false;
 
   @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Form(
-      key: _formKey,
+      key: context.read<LoginCubit>().formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -46,10 +38,17 @@ class _LoginFormState extends State<LoginForm> {
           verticalSpace(8),
 
           AppTextFormField(
-            controller: _emailController,
+            controller: context.read<LoginCubit>().emailController,
             hintText: S.of(context).loginScreenEmailHint,
             keyboardType: TextInputType.emailAddress,
-            validator: (p0) {},
+            validator: (value) {
+              final trimmedValue = value?.trim() ?? '';
+              if (trimmedValue.isEmpty ||
+                  !AppRegex.isEmailValid(trimmedValue)) {
+                return S.of(context).loginScreenInvalidEmail;
+              }
+              return null;
+            },
           ),
 
           verticalSpace(24),
@@ -64,10 +63,15 @@ class _LoginFormState extends State<LoginForm> {
           verticalSpace(8),
 
           AppTextFormField(
-            controller: _passwordController,
+            controller: context.read<LoginCubit>().passwordController,
             hintText: S.of(context).loginScreenPasswordHint,
             isObscureText: !_isPasswordVisible,
-            validator: (p0) {},
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return S.of(context).loginScreenInvalidPassword;
+              }
+              return null;
+            },
             suffixIcon: IconButton(
               onPressed: () {
                 setState(() {
@@ -91,41 +95,70 @@ class _LoginFormState extends State<LoginForm> {
             children: [
               Flexible(
                 flex: 1,
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SizedBox(
-                      width: 24.w,
-                      height: 24.h,
-                      child: Checkbox(
-                        value: _rememberMe,
-                        onChanged: (value) {
-                          setState(() {
-                            _rememberMe = value ?? false;
-                          });
-                        },
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(4.r),
+                child: FormField<bool>(
+                  initialValue: _rememberMe,
+                  validator: (value) {
+                    if (value == null || !value) {
+                      return S.of(context).loginScreenRememberMeRequired;
+                    }
+                    return null;
+                  },
+                  builder: (formFieldState) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            SizedBox(
+                              width: 24.w,
+                              height: 24.h,
+                              child: Checkbox(
+                                value: _rememberMe,
+                                onChanged: (value) {
+                                  setState(() {
+                                    _rememberMe = value ?? false;
+                                  });
+                                  formFieldState.didChange(value);
+                                },
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(4.r),
+                                ),
+                                side: BorderSide(
+                                  color: formFieldState.hasError
+                                      ? Colors.red
+                                      : context.customAppColors.grey300,
+                                  width: 1.5.w,
+                                ),
+                                activeColor: context.customAppColors.primary700,
+                              ),
+                            ),
+                            horizontalSpace(8),
+                            Flexible(
+                              child: Text(
+                                S.of(context).loginScreenRememberMe,
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
+                                style: AppTextStyles.font16Regular.copyWith(
+                                  color: context.customAppColors.grey700,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                        side: BorderSide(
-                          color: context.customAppColors.grey300,
-                          width: 1.5.w,
-                        ),
-                        activeColor: context.customAppColors.primary700,
-                      ),
-                    ),
-                    horizontalSpace(8),
-                    Flexible(
-                      child: Text(
-                        S.of(context).loginScreenRememberMe,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                        style: AppTextStyles.font16Regular.copyWith(
-                          color: context.customAppColors.grey700,
-                        ),
-                      ),
-                    ),
-                  ],
+                        if (formFieldState.hasError)
+                          Padding(
+                            padding: EdgeInsets.only(top: 4.h),
+                            child: Text(
+                              formFieldState.errorText ?? '',
+                              style: AppTextStyles.font12Regular.copyWith(
+                                color: Colors.red,
+                              ),
+                            ),
+                          ),
+                      ],
+                    );
+                  },
                 ),
               ),
 

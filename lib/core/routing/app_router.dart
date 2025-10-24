@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tharad_tech/core/di/dependency_injection.dart';
 import 'package:tharad_tech/core/routing/routes.dart';
 import 'package:tharad_tech/features/edit_profile/presentation/screens/edit_profile_screen.dart';
 import 'package:tharad_tech/features/home/presentation/screens/home_screen.dart';
-import 'package:tharad_tech/features/login/presentation/screens/logic_screen.dart';
+import 'package:tharad_tech/features/login/presentation/logic/login_cubit.dart';
+import 'package:tharad_tech/features/login/presentation/screens/login_screen.dart';
 import 'package:tharad_tech/features/register/presentation/screens/register_screen.dart';
 import 'package:tharad_tech/features/verify_email/presentation/screens/otp_screen.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      // Logic Screen
-      case Routes.logicScreen:
-        return MaterialPageRoute(builder: (_) => const LogicScreen());
+      // Login Screen
+      case Routes.loginScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<LoginCubit>(),
+            child: const LoginScreen(),
+          ),
+        );
 
       // Register Screen
       case Routes.registerScreen:

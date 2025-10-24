@@ -154,6 +154,16 @@ class S {
     );
   }
 
+  /// `Please check Remember Me to continue.`
+  String get loginScreenRememberMeRequired {
+    return Intl.message(
+      'Please check Remember Me to continue.',
+      name: 'loginScreenRememberMeRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Don't have an account?`
   String get loginScreenDontHaveAccount {
     return Intl.message(
@@ -184,10 +194,10 @@ class S {
     );
   }
 
-  /// `Login failed. Please check your credentials.`
+  /// `Login failed. Please try again.`
   String get loginScreenFailure {
     return Intl.message(
-      'Login failed. Please check your credentials.',
+      'Login failed. Please try again.',
       name: 'loginScreenFailure',
       desc: '',
       args: [],

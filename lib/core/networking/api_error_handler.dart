@@ -41,13 +41,13 @@ class AppErrorHandler {
 
   static bool isNetworkError(dynamic error) {
     if (error is ApiErrorModel) {
-      return error.statusCode == -6 ||
+      return error.status == -6 ||
           error.message?.contains('internet') == true ||
           error.message?.contains('connection') == true;
     }
 
     if (error is ApiNetworkExceptions) {
-      return error.errorModel?.statusCode == -6 ||
+      return error.errorModel?.status == -6 ||
           error.message?.contains('internet') == true ||
           error.message?.contains('connection') == true;
     }
@@ -60,12 +60,11 @@ class AppErrorHandler {
 
   static bool isAuthError(dynamic error) {
     if (error is ApiErrorModel) {
-      return error.statusCode == 401 || error.statusCode == 403;
+      return error.status == 401 || error.status == 403;
     }
 
     if (error is ApiNetworkExceptions && error.errorModel != null) {
-      return error.errorModel!.statusCode == 401 ||
-          error.errorModel!.statusCode == 403;
+      return error.errorModel!.status == 401 || error.errorModel!.status == 403;
     }
 
     return false;
@@ -73,15 +72,15 @@ class AppErrorHandler {
 
   static bool isServerError(dynamic error) {
     if (error is ApiErrorModel) {
-      return error.statusCode != null &&
-          error.statusCode! >= 500 &&
-          error.statusCode! < 600;
+      return error.status != null &&
+          error.status! >= 500 &&
+          error.status! < 600;
     }
 
     if (error is ApiNetworkExceptions && error.errorModel != null) {
-      return error.errorModel!.statusCode != null &&
-          error.errorModel!.statusCode! >= 500 &&
-          error.errorModel!.statusCode! < 600;
+      return error.errorModel!.status != null &&
+          error.errorModel!.status! >= 500 &&
+          error.errorModel!.status! < 600;
     }
 
     return false;
@@ -203,7 +202,7 @@ extension DataSourceExtension on DataSource {
 
     final tuple =
         map[this] ?? (ResponseCode.defaultError, ResponseMessage.defaultError);
-    return ApiErrorModel(statusCode: tuple.$1, message: tuple.$2);
+    return ApiErrorModel(status: tuple.$1, message: tuple.$2);
   }
 }
 

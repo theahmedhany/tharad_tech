@@ -26,7 +26,7 @@ class RegisterFooter extends StatelessWidget {
 
         TextButton(
           onPressed: () {
-            context.pushReplacementNamed(Routes.logicScreen);
+            context.pushReplacementNamed(Routes.loginScreen);
           },
           style: TextButton.styleFrom(
             padding: EdgeInsets.zero,

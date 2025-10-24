@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tharad_tech/core/helpers/spacing.dart';
+import 'package:tharad_tech/features/login/presentation/logic/login_cubit.dart';
+import 'package:tharad_tech/features/login/presentation/widgets/login_bloc_listener.dart';
 import 'package:tharad_tech/generated/l10n.dart';
 
 import '../../../../core/theme/app_texts/app_text_styles.dart';
@@ -10,8 +13,8 @@ import '../widgets/login_footer.dart';
 import '../widgets/login_form.dart';
 import '../widgets/login_header.dart';
 
-class LogicScreen extends StatelessWidget {
-  const LogicScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +49,9 @@ class LogicScreen extends StatelessWidget {
                 textStyle: AppTextStyles.font18SemiBold.copyWith(
                   color: context.customAppColors.white,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  validateThenDoLogin(context);
+                },
                 borderRadius: 8.r,
               ),
 
@@ -55,10 +60,18 @@ class LogicScreen extends StatelessWidget {
               const LoginFooter(),
 
               verticalSpace(24),
+
+              LoginBlocListener(),
             ],
           ),
         ),
       ),
     );
+  }
+
+  void validateThenDoLogin(BuildContext context) {
+    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+      context.read<LoginCubit>().emitLoginStates();
+    }
   }
 }

@@ -9,7 +9,6 @@ class DioFactory {
   DioFactory._();
 
   static Dio? dio;
-  static Dio? uploadDio;
 
   static Dio getDio() {
     Duration timeOut = const Duration(seconds: 30);
@@ -27,21 +26,6 @@ class DioFactory {
     }
   }
 
-  static Dio getUploadDio() {
-    if (uploadDio == null) {
-      uploadDio = Dio();
-      uploadDio!
-        ..options.connectTimeout = null
-        ..options.receiveTimeout = null
-        ..options.sendTimeout = null;
-      addDioHeadersToUploadDio();
-      addDioInterceptorToUploadDio();
-      return uploadDio!;
-    } else {
-      return uploadDio!;
-    }
-  }
-
   static void addDioHeaders() async {
     dio?.options.headers = {
       'Accept': 'application/json',
@@ -50,32 +34,12 @@ class DioFactory {
     };
   }
 
-  static void addDioHeadersToUploadDio() async {
-    uploadDio?.options.headers = {
-      'Accept': 'application/json',
-      'Authorization':
-          'Bearer ${await SharedPrefHelper.getSecuredString(key: SharedPrefKeys.userToken)}',
-    };
-  }
-
   static void setTokenIntoHeaderAfterLogin(String token) {
     dio?.options.headers = {'Authorization': 'Bearer $token'};
-    uploadDio?.options.headers = {'Authorization': 'Bearer $token'};
   }
 
   static void addDioInterceptor() {
     dio?.interceptors.add(
-      PrettyDioLogger(
-        requestHeader: true,
-        requestBody: true,
-        responseHeader: true,
-        enabled: kDebugMode,
-      ),
-    );
-  }
-
-  static void addDioInterceptorToUploadDio() {
-    uploadDio?.interceptors.add(
       PrettyDioLogger(
         requestHeader: true,
         requestBody: true,

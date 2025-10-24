@@ -11,10 +11,11 @@
   "loginScreenLoginButton": "Login",
   "loginScreenInvalidEmail": "Please enter a valid email address.",
   "loginScreenInvalidPassword": "Please enter your password.",
+  "loginScreenRememberMeRequired": "Please check Remember Me to continue.",
   "loginScreenDontHaveAccount": "Don't have an account?",
   "loginScreenSignUp": "Sign Up",
   "loginScreenSuccess": "Login successful!",
-  "loginScreenFailure": "Login failed. Please check your credentials.",
+  "loginScreenFailure": "Login failed. Please try again.",
 
   "registerScreenTitle": "Create a New Account.",
   "registerChooseProfilePicture": "Profile Picture",
